@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="true"
+			label="Name"
+			description="name_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="description"
+			name="description"
+			type="editor"
+			label="Description"
+			description="description_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+							
+		<field
+			id="published"
+			name="published"
+			type="list"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="JField_Published_Label"
+			description="JField_Published_Desc">
+			<option
+				value="1">
+				JOption_Published</option>
+			<option
+				value="0">
+				JOption_UnPublished</option>
+			<option
+				value="-1">
+				JOption_Archived</option>
+			<option
+				value="-2">
+				JOption_Trashed</option>
+		</field>
+                          
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			required="false"
+			label="Creation Time"
+			description="created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+							
+		<field
+			name="ordering"
+			type="hidden"
+			filter="unset"/>						  
+									
+	</fields>	
+		
+	<fields name="params">
+		<fieldset
+			name="basic">		
+			<field
+				name="example_param"
+				type="list"
+				default=""
+				label="Params_Example_Label"
+				description="Params_Example_Desc">
+				<option
+					value="0">No</option>
+				<option
+					value="1">Yes</option>
+			</field>
+		</fieldset>
+	</fields>
+		
+</form>	
