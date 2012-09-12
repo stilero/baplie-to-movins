@@ -24,7 +24,6 @@ class EdiMEA extends EdiElement{
     protected $detailsAttr;
     protected $unit;
     protected $value;
-    protected $segmentsArray;
     
     public function __construct($identifier, $elementData) {
         parent::__construct($identifier, $elementData);
@@ -43,25 +42,12 @@ class EdiMEA extends EdiElement{
     }
     
     public function stringElement(){
-            return $this->arrayToString().'\'';
-    }
-        
-    public function getArray(){
-        $this->segmentsArray = array(
-            $this->identifier,
-            $this->qualifier,
-            array(
-                $this->details,
-                $this->detailsDimension,
-                $this->detailsSignificance,
-                $this->detailsAttrCoded,
-                $this->detailsAttrCoded,
-                $this->detailsAttr
-            ),
-            $this->unit,
-            $this->value
-        );
-        return $this->segmentsArray;
+        return 
+            $this->identifier.'+'.
+                $this->qualifier.'+'.
+            $this->details.':'.$this->detailsDimension.':'.$this->detailsSignificance.':'.$this->detailsAttrCoded.':'.$this->detailsAttr.'+'.
+            $this->unit.':'.
+            $this->value.'\'';
     }
 }
 
